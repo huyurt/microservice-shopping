@@ -7,7 +7,7 @@ using MyShopping.Services.CouponApi.Models.Dto;
 namespace MyShopping.Services.CouponApi.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/coupon")]
     public class CouponController : ControllerBase
     {
         private readonly AppDbContext _db;
@@ -108,7 +108,8 @@ namespace MyShopping.Services.CouponApi.Controllers
         }
 
         [HttpDelete]
-        public ResponseDto Delete(long id)
+        [Route("{id:long}")]
+		public ResponseDto Delete(long id)
         {
             try
             {
