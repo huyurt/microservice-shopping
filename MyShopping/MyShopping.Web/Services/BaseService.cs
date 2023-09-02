@@ -4,7 +4,7 @@ using MyShopping.Web.Models;
 using MyShopping.Web.Service.Contract;
 using Newtonsoft.Json;
 
-namespace MyShopping.Web.Service
+namespace MyShopping.Web.Services
 {
     public class BaseService : IBaseService
     {

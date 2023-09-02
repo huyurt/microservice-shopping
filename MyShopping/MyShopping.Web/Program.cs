@@ -1,5 +1,5 @@
-using MyShopping.Web.Service;
 using MyShopping.Web.Service.Contract;
+using MyShopping.Web.Services;
 using MyShopping.Web.Utility;
 
 var builder = WebApplication.CreateBuilder(args);

@@ -2,7 +2,7 @@
 using MyShopping.Web.Service.Contract;
 using MyShopping.Web.Utility;
 
-namespace MyShopping.Web.Service
+namespace MyShopping.Web.Services
 {
 	public class CouponService : ICouponService
 	{
