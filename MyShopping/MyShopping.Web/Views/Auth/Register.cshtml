@@ -2,29 +2,38 @@
 
 <form method="post">
 	<div class="contianer border p-4">
-		<div class="row text-center">
-			<h1>Login</h1>
+		<div class="row text-center p-3">
+			<h1>Kayıt Ol</h1>
 		</div>
 		<div class="row">
 			<div class="col-12 col-md-6 offset-md-3 pb-2">
-				<input asp-for="Email" class="form-control" placeholder="Email..." />
+				<input asp-for="Email" class="form-control" placeholder="E-posta..." />
 				<span asp-validation-for="Email" class="text-danger"></span>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3 pb-2">
-				<input asp-for="Name" class="form-control" placeholder="Name..." />
+				<input asp-for="Name" class="form-control" placeholder="İsim..." />
 				<span asp-validation-for="Name" class="text-danger"></span>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3 pb-2">
-				<input asp-for="PhoneNumber" class="form-control" placeholder="PhoneNumber..." />
+				<input asp-for="PhoneNumber" class="form-control" placeholder="Telefon Numarası..." />
 				<span asp-validation-for="PhoneNumber" class="text-danger"></span>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3 pb-2">
-				<input asp-for="Password" class="form-control" placeholder="Password..." />
+				<input asp-for="Password" class="form-control" placeholder="Şifre..." />
 				<span asp-validation-for="Password" class="text-danger"></span>
 			</div>
 			<div class="col-12 col-md-6 offset-md-3 pb-2">
-				<button type="submit" class="form-control btn btn-success" value="Submit">Register</button>
+				<select asp-for="Role" class="form-select" asp-items="@ViewBag.RoleList">
+					<option disabled selected>-- Rol Seçiniz --</option>
+				</select>
+			</div>
+			<div class="col-12 col-md-6 offset-md-3 pb-2">
+				<button type="submit" class="form-control btn btn-success" value="Submit">Kayıt Ol</button>
 			</div>
 		</div>
 	</div>
 </form>
+
+@section Scripts {
+	<partial name="_ValidationScriptsPartial" />
+}

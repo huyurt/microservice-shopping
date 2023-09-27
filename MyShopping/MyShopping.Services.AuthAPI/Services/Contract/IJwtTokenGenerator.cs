@@ -4,6 +4,6 @@ namespace MyShopping.Services.AuthAPI.Services.Contract
 {
     public interface IJwtTokenGenerator
     {
-        string GenerateToken(ApplicationUser applicationUser);
+        string GenerateToken(ApplicationUser applicationUser, IEnumerable<string> roles);
     }
 }

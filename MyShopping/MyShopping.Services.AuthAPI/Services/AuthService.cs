@@ -37,7 +37,8 @@ namespace MyShopping.Services.AuthAPI.Services
                 return new LoginResponseDto();
             }
 
-            var token = _jwtTokenGenerator.GenerateToken(user);
+            var roles = await _userManager.GetRolesAsync(user);
+            var token = _jwtTokenGenerator.GenerateToken(user, roles);
 
             UserDto userDto = new()
             {
@@ -86,7 +87,7 @@ namespace MyShopping.Services.AuthAPI.Services
                 }
                 else
                 {
-                    return result.Exception.Message;
+                    return result.Exception?.Message ?? result.Result.Errors.FirstOrDefault()?.Description ?? "Bilinmeyen hata oluştu!";
                 }
             }
             catch (Exception ex)
@@ -94,7 +95,7 @@ namespace MyShopping.Services.AuthAPI.Services
 
             }
 
-            return "Error Encountered";
+            return "Hata Oluştu";
         }
 
         public async Task<bool> AssignRole(string email, string roleName)
